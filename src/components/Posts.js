@@ -7,7 +7,7 @@ import { Item } from "semantic-ui-react";
 
 class Posts extends Component {
   state = {
-    loading: true
+    loading: true,
   };
   componentDidMount() {
     this.props.fetchPosts(this.props.type);
@@ -27,7 +27,7 @@ class Posts extends Component {
   }
 
   render() {
-    const postItems = this.props.posts.map(post => (
+    const postItems = this.props.posts.map((post) => (
       <div key={post.id}>
         <NewsItem
           className="container"
@@ -36,6 +36,7 @@ class Posts extends Component {
           author={post.author}
           img={post.urlToImage}
           date={post.publishedAt}
+          url={post.url}
         />
       </div>
     ));
@@ -52,20 +53,17 @@ class Posts extends Component {
 }
 
 const demoAsyncCall = () =>
-  new Promise(resolve => setTimeout(() => resolve(), 2500));
+  new Promise((resolve) => setTimeout(() => resolve(), 2500));
 
 Posts.propTypes = {
   fetchPosts: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired,
-  newPost: PropTypes.object
+  newPost: PropTypes.object,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   posts: state.posts.items,
-  newPost: state.posts.item
+  newPost: state.posts.item,
 });
 
-export default connect(
-  mapStateToProps,
-  { fetchPosts }
-)(Posts);
+export default connect(mapStateToProps, { fetchPosts })(Posts);

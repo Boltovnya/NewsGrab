@@ -8,7 +8,9 @@ export function NewsItem(props) {
       <Item.Image size="tiny" src={props.img} />
 
       <Item.Content>
-        <Item.Header as="a">{props.title}</Item.Header>
+        <Item.Header as="a" href={props.url}>
+          {props.title}
+        </Item.Header>
         <Item.Meta>{props.author}</Item.Meta>
         <Item.Description>{props.body}</Item.Description>
         <Item.Extra>Published at {props.date}</Item.Extra>
