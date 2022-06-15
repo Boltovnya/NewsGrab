@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "./store";
 
+const cors = require("cors");
+
 import "./App.css";
 import PostPane from "./components/PostPane";
 import PostForm from "./components/PostForm";
