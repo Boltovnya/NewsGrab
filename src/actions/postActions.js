@@ -3,7 +3,8 @@ import { FETCH_POSTS, NEW_POST, TOP_UK, TOP_US, TOP_ZA } from "./types";
 export const fetchPosts = (type) => (dispatch) => {
   fetch(`https://newsapi.org/v2/top-headlines?country=${type}`, {
     method: "GET",
-    mode: "same-origin",
+    mode: "cors",
+
     headers: {
       "X-Api-Key": "5630bdcd12d049868a069098a2260343",
     },
